@@ -48,7 +48,7 @@ class Forecast:
 
                 # Margin of victory is used as a K multiplier
                 pd = abs(game['score1'] - game['score2'])
-                mult = math.log (2.2 / (1.0 if game['result1'] == 0.5 else ((elo_diff if game['result1'] == 1.0 else -elo_diff) * 0.001 + 2.2)))
+                mult = math.log(max(pd, 1) + 1.0) * (2.2 / (1.0 if game['result1'] == 0.5 else ((elo_diff if game['result1'] == 1.0 else -elo_diff) * 0.001 + 2.2)))
 
                 # Elo shift based on K and the margin of victory multiplier
                 shift = (K * mult) * (game['result1'] - game['my_prob1'])
