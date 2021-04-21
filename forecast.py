@@ -37,7 +37,7 @@ class Forecast:
                 team['season'] = game['season']
 
             # Elo difference includes home field advantage
-            elo_diff = team1['elo'] - team2['elo'] + (0 if game['neutral'] == 1 else HFA)
+            elo_diff = team1['elo'] - team2['elo'] + (0 if game['neutral'] == 2 else if team1['DEN'] HFA == 1 else HFA)
 
             # This is the most important piece, where we set my_prob1 to our forecasted probability
             if game['elo_prob1'] != None:
